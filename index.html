@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Work Day Scheduler</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Quiz Intro -->
+    <div class="row center-align">
+      <div class="col s12 m12 l12">
+        <h1>Work Day Scheduler</h1>
+        <p>Description Here</p>
+      </div>
+    </div>
+
+    <!-- Quiz Score and Questions-->
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="wrapper">
+          <div class="time">9AM</div>
+          <div class="toDo">Hello world! This is a to-do</div>
+          <div class="save"><i class="material-icons">save</i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Final Score -->
+    <div id="modal1" class="animated modal">
+      <div class="modal-content">
+        <h4>Game Over!</h4>
+        <p>Your Score: <span class="finalScore"></span></p>
+        <form>
+          <div class="input-field">
+            <input type="text" name="name" id="name" />
+            <label for="name">Name</label>
+          </div>
+          <button type="button" class="btn-large mycolor disabled" id="submit">Submit Score</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

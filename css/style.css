@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono&display=swap");
+body {
+  /* Background pattern from Toptal Subtle Patterns */
+  background-image: url("../images/email-pattern.png");
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  font-size: 18px;
+}
+
+h1, h2, h3, th {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+th {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+button.mycolor {
+  background-color: #EA5338;
+}
+
+button.mycolor:hover, button.mycolor:active, button.mycolor:focus {
+  background-color: #f4a394;
+}
+
+.btn-choice {
+  text-transform: none;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.quiz {
+  border: 3px dashed #545454;
+  padding: 30px;
+  min-height: 15px;
+  margin: 15px 0;
+}
+
+.quiz p {
+  padding: 0 0 15px 0;
+  font-weight: bold;
+}
+
+div.time,
+div.toDo,
+div.save {
+  display: inline-block;
+}
+/*# sourceMappingURL=style.css.map */
