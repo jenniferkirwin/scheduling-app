@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
-$primary-color: #EA5338; 
-$grey: #545454;
+$primary-color: #62B6CB; 
+$secondary-color: #62B6CB;
+$grey: #62727C;
+$light-grey:#CBDFED;
 $light-color: #ffffff;
 $default-padding: 15px;
 
-  body {
+body {
     /* Background pattern from Toptal Subtle Patterns */
     background-image: url("../images/email-pattern.png");
     font-family: 'Open Sans', sans-serif;
@@ -14,12 +16,7 @@ $default-padding: 15px;
 }
 
 h1, h2, h3, th {
-    font-family: 'Share Tech Mono', monospace;
-}
-
-th {
-    font-size: 36px;
-    font-weight: normal;
+    font-family: 'Bebas Neue', cursive;
 }
 
 button.mycolor {
@@ -35,20 +32,48 @@ button.mycolor {
     margin-bottom: $default-padding;
 }
 
-.quiz {
-    border: 3px dashed $grey;
-    padding: $default-padding * 2;
-    min-height: $default-padding;
-    margin: $default-padding 0;
-    p {
-        padding: 0 0 $default-padding 0;
-        font-weight: bold;
+/* -------------------------------------------------------------- */
+/* Styling the wrapper and to do layout*/
+/* -------------------------------------------------------------- */
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+.wrapper {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+div.time {
+    background-color: $primary-color;
+    color: $light-color;
+    // padding: $default-padding *2;
+    // font-weight: bold;
+    // font-size: 32px;
+    h2 {
+        margin: $default-padding;
+        font-size: 32px;
     }
 }
 
-div.time,
-div.toDo,
 div.save {
-    display: inline-block;
+    // background-color: $light-grey;
+    border-left: solid 1px $light-grey;
 }
+
+// div.toDo {
+// }
+
+.toDofield {
+    margin: 0;
+    padding: $default-padding;
+    outline: none;
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 100%; 
+    box-sizing: border-box;
+  }

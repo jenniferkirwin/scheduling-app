@@ -8,6 +8,7 @@
 
   <!-- Added link to the jQuery Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/autoresize.jquery.js"></script>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -26,37 +27,27 @@
       </div>
     </div>
 
-    <!-- Quiz Score and Questions-->
-    <div class="row">
-      <div class="col s12 m12">
-        <div class="wrapper">
-          <div class="time">9AM</div>
-          <div class="toDo">Hello world! This is a to-do</div>
-          <div class="save"><i class="material-icons">save</i></div>
+    <!-- Scheduler -->
+    
+    <div class="row wrapper flex">
+      
+        <div class="time col s12 m2 l2 center-align">
+          <h2>9AM</h2>
         </div>
-      </div>
-    </div>
+        <div class="toDo col s12 m9 l9">
+          <form>
+              <textarea id="todo-9" class="toDofield" placeholder="Type Task Here"></textarea>
+          </form>
+        </div>
+        <div class="save col s12 m1 l1 center-align"><p><i class="material-icons">save</i></p></div>
+      
 
-    <!-- Modal for Final Score -->
-    <div id="modal1" class="animated modal">
-      <div class="modal-content">
-        <h4>Game Over!</h4>
-        <p>Your Score: <span class="finalScore"></span></p>
-        <form>
-          <div class="input-field">
-            <input type="text" name="name" id="name" />
-            <label for="name">Name</label>
-          </div>
-          <button type="button" class="btn-large mycolor disabled" id="submit">Submit Score</button>
-        </form>
-      </div>
-    </div>
-  </div>
   </div>
 
   <!--  Scripts-->
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/moment.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 
