@@ -47,6 +47,8 @@ $(document).ready(function () {
     toDos[dataIndex] = dataToDo;
 
     localStorage.setItem("savedToDos", JSON.stringify(toDos));
+
+    M.toast({html: '<i class="material-icons left">check</i> Saved'});
     
   });
 
@@ -57,6 +59,7 @@ $(document).ready(function () {
   $(".btn-clear").on("click", function () {
     localStorage.clear();
     $('textarea').val("");
+    M.toast({html: '<i class="material-icons left">delete_forever</i> Deleted'})
     toDoArray();
   });
 
