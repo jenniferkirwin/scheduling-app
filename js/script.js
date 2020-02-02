@@ -10,88 +10,53 @@ $(document).ready(function () {
   $('.currentTime').text(currentTime);
 
   // -------------------------------------------------------------------------------------
+  // Creating array for toDo items, and adding items of they are in storage
+  // -------------------------------------------------------------------------------------
+
+  let toDos = [];
+  let toDosLen = 9;
+  let savedToDos = JSON.parse(localStorage.getItem("savedToDos"));
+
+  function toDoArray() {
+    for (i = 0; i < toDosLen; i++) {
+      toDos.push("");
+    };
+  }
+
+  if (savedToDos !== null) {
+    toDos = savedToDos;
+    for (i = 0; i < toDosLen; i++) {
+      $(`[data-index="${i}"]`).text(toDos[i]);
+    };    
+  }
+
+  else {
+    toDoArray();
+  }
+
+  // -------------------------------------------------------------------------------------
   // Saving a toDo item on "save" button click
   // -------------------------------------------------------------------------------------
-  
-  let savedToDos = [];
 
   $(".saveIcon").on("click", function() {
-    let dataIndex = $(this).closest('form').find('.toDofield').attr('data-index');
-    let dataToDo = $(this).closest('form').find('.toDofield').val();
-    console.log(dataIndex);
+    let $this = $(this);
+    let dataIndex = $this.closest('form').find('.toDofield').attr('data-index');
+    let dataToDo = $this.closest('form').find('.toDofield').val();
+
+    toDos[dataIndex] = dataToDo;
+
+    localStorage.setItem("savedToDos", JSON.stringify(toDos));
+    
   });
-
-  // -------------------------------------------------------------------------------------
-  // seeing if to-dos are in storage & rendering them
-  // -------------------------------------------------------------------------------------
-
-  // if (localStorage.getItem("userScores") !== null) {
-  //   userScores = JSON.parse(localStorage.getItem("userScores"));
-  //   userScoresInd = userScores.length;
-  //   scoreList();
-  // }
-
-  // else {
-  //   userScores = [];
-  // };
-
-  // function scoreList() {
-  //   for (let i = 0; i < userScores.length; i++) {
-  //     let tr = scoresTable.append($("<tr>"));
-  //     tr.append($("<td>").text(userScores[i].name));
-  //     tr.append($("<td>").text(userScores[i].score));
-  //   };
-  // };
-
-
-  // -------------------------------------------------------------------------------------
-  // detecting a "save" and adding it to local storage
-  // -------------------------------------------------------------------------------------
-
-  // $(document).on("click", ".btn-start", function () {
-  //   $(".btn-large").addClass("disabled");
-  //   arrayIndex = 0;
-  //   timer();
-  //   renderQuestion();
-  // });
 
   // -------------------------------------------------------------------------------------
   // Create object to store score in local storage
   // -------------------------------------------------------------------------------------
 
-  // $("#submit").on("click", function (e) {
-
-  //   let userName = $("#name").val();
-
-  //   if (userName === "") {
-  //     $(".modal").addClass("shake");
-  //     setTimeout(function () {
-  //       $(".modal").removeClass("shake");
-  //     }, 800);
-  //     return;
-
-  //   }
-  //   // push to storage
-
-  //   newScore = {
-  //     "name": userName,
-  //     "score": finalScore
-  //   }
-  //   userScores.push(newScore);
-  //   localStorage.setItem("userScores", JSON.stringify(userScores));
-  //   $("#name").val("");
-
-  //   // render on table
-  //   let tr = scoresTable.append($("<tr>"));
-  //   tr.append($("<td>").text(userScores[userScores.length - 1].name));
-  //   tr.append($("<td>").text(userScores[userScores.length - 1].score));
-  //   instance.close();
-  // });
-
-  // $(".btn-clear").on("click", function () {
-  //   localStorage.clear();
-  //   userScores = [];
-  //   scoresTable.empty();
-  // });
+  $(".btn-clear").on("click", function () {
+    localStorage.clear();
+    $('textarea').empty();
+    toDoArray();
+  });
 
 });
