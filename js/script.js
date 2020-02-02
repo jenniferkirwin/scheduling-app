@@ -28,43 +28,26 @@ $(document).ready(function () {
   else {
     toDoArray();
   }
-
-  // -------------------------------------------------------------------------------------
-  // Saving a toDo item on "save" button click
-  // -------------------------------------------------------------------------------------
-
-  $(".saveIcon").on("click", function() {
-    let $this = $(this);
-    let dataIndex = $this.closest('form').find('.toDofield').attr('data-index');
-    let dataToDo = $this.closest('form').find('.toDofield').val();
-
-    toDos[dataIndex] = dataToDo;
-
-    localStorage.setItem("savedToDos", JSON.stringify(toDos));
-
-    M.toast({html: '<i class="material-icons left">check</i> Saved'});
-    
-  });
-
-  // -------------------------------------------------------------------------------------
-  // Create object to store score in local storage
-  // -------------------------------------------------------------------------------------
-
-  $(".btn-clear").on("click", function () {
-    localStorage.clear();
-    $('textarea').val("");
-    M.toast({html: '<i class="material-icons left">delete_forever</i> Deleted'})
-    toDoArray();
-  });
-
 // -------------------------------------------------------------------------------------
 // find the current time when the page is loaded, and see if there are tasks from a different day
 // -------------------------------------------------------------------------------------
 
-// let savedToDos = JSON.parse(localStorage.getItem("savedToDos"));
-let currentTime = moment();
+let previousDate = JSON.parse(localStorage.getItem("previousDate"));
+let currentDate = moment().format('YYYY-MM-DD');
+let $dateWarning = $('.dateWarning');
 
-$('.currentTime').text(currentTime.format('MMMM Do, YYYY'));
+$('.currentTime').text(moment(currentDate).format('MMMM Do, YYYY'));
+
+if ((previousDate !== null) && (moment(`${previousDate}`).isBefore(`${currentDate}`))) {
+  $dateWarning.removeClass('hide');
+  $('.previousDate').text(moment(previousDate).format('MMMM Do, YYYY'));
+}
+
+else {
+  localStorage.setItem("previousDate", JSON.stringify(currentDate));
+}
+
+
 
 // -------------------------------------------------------------------------------------
 // Turn each time block gray if the hour has passed. I chose to still let the user edit the item if they desired
@@ -89,4 +72,37 @@ function timedUpdate () {
 
 timedUpdate();
 
+  // -------------------------------------------------------------------------------------
+  // Delete, Keep, and Save Buttons
+  // -------------------------------------------------------------------------------------
+
+  $(".btn-clear").on("click", function () {
+    localStorage.clear();
+    $('textarea').val("");
+    M.toast({html: '<i class="material-icons left">delete_forever</i> Deleted'});
+    localStorage.setItem("previousDate", JSON.stringify(currentDate));
+    $dateWarning.addClass('hide');
+    toDoArray();
+  });
+
+  $(".btn-keep").on("click", function () {
+    $dateWarning.addClass('hide');
+    localStorage.setItem("previousDate", JSON.stringify(currentDate));
+    M.toast({html: '<i class="material-icons left">check</i> Saved'});
+  });
+
+  $(".saveIcon").on("click", function() {
+    let $this = $(this);
+    let dataIndex = $this.closest('form').find('.toDofield').attr('data-index');
+    let dataToDo = $this.closest('form').find('.toDofield').val();
+
+    toDos[dataIndex] = dataToDo;
+
+    localStorage.setItem("savedToDos", JSON.stringify(toDos));
+
+    M.toast({html: '<i class="material-icons left">check</i> Saved'});
+    
+  });
+
 });
+
