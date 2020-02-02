@@ -3,12 +3,6 @@ $(document).ready(function () {
   // make text areas automatically resize
   $('textarea').autoResize();
 
-  // Update date on web page
-
-  let currentTime = moment().format('MMMM Do, YYYY');
-
-  $('.currentTime').text(currentTime);
-
   // -------------------------------------------------------------------------------------
   // Creating array for toDo items, and adding items of they are in storage
   // -------------------------------------------------------------------------------------
@@ -28,7 +22,7 @@ $(document).ready(function () {
     toDos = savedToDos;
     for (i = 0; i < toDosLen; i++) {
       $(`[data-index="${i}"]`).text(toDos[i]);
-    };    
+    };   
   }
 
   else {
@@ -62,5 +56,37 @@ $(document).ready(function () {
     M.toast({html: '<i class="material-icons left">delete_forever</i> Deleted'})
     toDoArray();
   });
+
+// -------------------------------------------------------------------------------------
+// find the current time when the page is loaded, and see if there are tasks from a different day
+// -------------------------------------------------------------------------------------
+
+// let savedToDos = JSON.parse(localStorage.getItem("savedToDos"));
+let currentTime = moment();
+
+$('.currentTime').text(currentTime.format('MMMM Do, YYYY'));
+
+// -------------------------------------------------------------------------------------
+// Turn each time block gray if the hour has passed. I chose to still let the user edit the item if they desired
+// -------------------------------------------------------------------------------------
+
+let toDoForms = $('form');
+let toDoTimes = [];
+
+for (i = 0; i < toDosLen; i++) {
+    toDoTimes.push(toDoForms[i].attributes[`data-time`].value);
+};
+
+function timedUpdate () {
+  for (i = 0; i < toDosLen; i++) {
+    if (moment(`${toDoTimes[i]}`, `LTS`) < moment()) {
+      $(`[data-time="${toDoTimes[i]}"]`).addClass('timePassed');
+    }
+  };
+
+  setTimeout(timedUpdate, 1000);
+}
+
+timedUpdate();
 
 });

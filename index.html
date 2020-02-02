@@ -23,13 +23,19 @@
     <div class="row center-align">
       <div class="col s12 m12 l12">
         <h1>Work Day Scheduler</h1>
-        <p>A simple interface to plan your work day, 9AM to 5PM, that resets every day.</p>
+        <p>A simple interface to plan your work day, 9AM to 5PM. As time passes, each hour is grayed out.</p>
         <h3 class="currentTime"></h3>
+      </div>
+      <div class="col s12 m12 l12">
+        <h2>This To Do list is from <span class="previousDate"></span></h2>
+        <p>What would you like to do?</p>
+        <button class="mycolor btn-large btn-keep"><i class="material-icons right">check</i>Keep Items</button>
+        <button class="mycolor btn-large btn-clear"><i class="material-icons right">delete_forever</i>Delete Items</button>
       </div>
     </div>
 
     <!-- Scheduler -->
-    <form>
+    <form data-time="9:59:59 AM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>9AM</h2>
@@ -45,7 +51,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="10:59:59 AM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>10AM</h2>
@@ -61,7 +67,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="11:59:59 AM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>11AM</h2>
@@ -77,7 +83,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="12:59:59 PM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>12PM</h2>
@@ -93,7 +99,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="1:59:59 PM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>1PM</h2>
@@ -109,7 +115,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="2:59:59 PM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>2PM</h2>
@@ -125,7 +131,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="3:59:59 PM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>3PM</h2>
@@ -141,7 +147,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="4:59:59 PM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>4PM</h2>
@@ -157,7 +163,7 @@
       </div>
     </form>
 
-    <form>
+    <form data-time="5:59:59 PM">
       <div class="row wrapper flex">
           <div class="time col s12 m3 l2 center-align">
             <h2>5PM</h2>
@@ -175,7 +181,7 @@
 
     <div class="row right-align">
       
-        <button class="mycolor btn-large btn-clear"><i class="material-icons right">delete_forever</i>Delete</button>
+        <button class="mycolor btn-large btn-clear"><i class="material-icons right">delete_forever</i>Delete Items</button>
       
     </div>
   </div>
