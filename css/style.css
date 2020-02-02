@@ -17,6 +17,7 @@ h1, h2, h3, th {
 
 button.mycolor {
   background-color: #F47258;
+  font-weight: bold;
 }
 
 button.mycolor:hover, button.mycolor:active, button.mycolor:focus {

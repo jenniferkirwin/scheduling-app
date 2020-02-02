@@ -22,6 +22,7 @@ h1, h2, h3, th {
 
 button.mycolor {
     background-color: $primary-color;
+    font-weight: bold;
     &:hover, &:active, &:focus {
         background-color:lighten($primary-color, 20%);  
     }

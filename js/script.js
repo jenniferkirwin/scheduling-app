@@ -18,6 +18,7 @@ $(document).ready(function () {
   let savedToDos = JSON.parse(localStorage.getItem("savedToDos"));
 
   function toDoArray() {
+    toDos = [];
     for (i = 0; i < toDosLen; i++) {
       toDos.push("");
     };
@@ -55,7 +56,7 @@ $(document).ready(function () {
 
   $(".btn-clear").on("click", function () {
     localStorage.clear();
-    $('textarea').empty();
+    $('textarea').val("");
     toDoArray();
   });
 
