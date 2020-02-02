@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
 body {
-  /* Background pattern from Toptal Subtle Patterns */
-  background-image: url("../images/email-pattern.png");
+  background: #ECE9E6;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#FFFFFF), to(#ECE9E6));
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: 'Open Sans', sans-serif;
   height: 100%;
   font-size: 18px;
@@ -12,11 +16,11 @@ h1, h2, h3, th {
 }
 
 button.mycolor {
-  background-color: #62B6CB;
+  background-color: #F47258;
 }
 
 button.mycolor:hover, button.mycolor:active, button.mycolor:focus {
-  background-color: #afdae4;
+  background-color: #fac3b8;
 }
 
 .btn-choice {
@@ -44,7 +48,7 @@ button.mycolor:hover, button.mycolor:active, button.mycolor:focus {
 }
 
 div.time {
-  background-color: #62B6CB;
+  background-color: #F47258;
   color: #ffffff;
 }
 
@@ -54,7 +58,21 @@ div.time h2 {
 }
 
 div.save {
-  border-left: solid 1px #CBDFED;
+  border-left: solid 1px #ECE9E6;
+}
+
+div.save button, div.save button:active {
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  -webkit-transition: all .1s;
+  /* Safari prior 6.1 */
+  transition: all .1s;
+}
+
+div.save button:hover {
+  color: #F47258;
 }
 
 .toDofield {
@@ -67,5 +85,14 @@ div.save {
   height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+form.timePassed > div > div {
+  background-color: #ECE9E6;
+  color: #aa9d8f;
+}
+
+form.timePassed > div > div .toDofield, form.timePassed > div > div button {
+  color: #aa9d8f;
 }
 /*# sourceMappingURL=style.css.map */

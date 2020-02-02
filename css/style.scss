@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
-$primary-color: #62B6CB; 
+$primary-color: #F47258; 
 $secondary-color: #62B6CB;
 $grey: #62727C;
-$light-grey:#CBDFED;
+$light-grey:#ECE9E6;
 $light-color: #ffffff;
 $default-padding: 15px;
 
 body {
-    /* Background pattern from Toptal Subtle Patterns */
-    background-image: url("../images/email-pattern.png");
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: 'Open Sans', sans-serif;
     height: 100%;
     font-size: 18px;
@@ -60,12 +61,19 @@ div.time {
 }
 
 div.save {
-    // background-color: $light-grey;
     border-left: solid 1px $light-grey;
+    button, button:active {
+        padding: $default-padding;
+        cursor: pointer;
+        border: none;
+        background: none;
+        -webkit-transition: all .1s; /* Safari prior 6.1 */
+        transition: all .1s;
+    }
+    button:hover {
+        color: $primary-color;
+    }
 }
-
-// div.toDo {
-// }
 
 .toDofield {
     margin: 0;
@@ -76,4 +84,12 @@ div.save {
     width: 100%;
     height: 100%; 
     box-sizing: border-box;
+  }
+
+  form.timePassed > div > div {
+      background-color: $light-grey;
+      color: darken($light-grey, 30%);
+      .toDofield, button {
+        color: darken($light-grey, 30%);  
+      }
   }

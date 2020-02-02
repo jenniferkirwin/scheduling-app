@@ -1,6 +1,26 @@
 $(document).ready(function () {
 
+  // make text areas automatically resize
   $('textarea').autoResize();
+
+  // Update date on web page
+
+  let currentTime = moment().format('MMMM Do, YYYY');
+
+  $('.currentTime').text(currentTime);
+
+  // -------------------------------------------------------------------------------------
+  // Saving a toDo item on "save" button click
+  // -------------------------------------------------------------------------------------
+  
+  let savedToDos = [];
+
+  $(".saveIcon").on("click", function() {
+    let dataIndex = $(this).closest('form').find('.toDofield').attr('data-index');
+    let dataToDo = $(this).closest('form').find('.toDofield').val();
+    console.log(dataIndex);
+  });
+
   // -------------------------------------------------------------------------------------
   // seeing if to-dos are in storage & rendering them
   // -------------------------------------------------------------------------------------
